@@ -2,17 +2,20 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
+import { PhotoController } from './photo/photo.controller';
+import { PhotoService } from './photo/photo.service';
+import { PhotoModule } from './photo/photo.module';
 import { AppService } from './app.service';
-import { Song, SongSchema } from './schema/Music.shema';
+import { MusicModule } from './music/musics.module';
 
 @Module({
   imports: [
     MongooseModule.forRoot(
-      'mongodb+srv://hiepeng:Abcd1234.@clusternguyenvanhiep.ulpaw33.mongodb.net/?retryWrites=true&w=majority',
+      'mongodb+srv://hiepeng:Abcd1234.@clusternguyenvanhiep.ulpaw33.mongodb.net/fullstack?retryWrites=true&w=majority',
     ),
-    MongooseModule.forFeature([{ name: Song.name, schema: SongSchema }]),
+    PhotoModule,MusicModule
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, PhotoController],
+  providers: [AppService, PhotoService],
 })
 export class AppModule {}

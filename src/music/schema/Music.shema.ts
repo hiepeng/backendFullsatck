@@ -10,11 +10,4 @@ export class Song {
   url: string;
 }
 
-export class User {
-  @Prop()
-  name: string;
-  @Prop()
-  password: string;
-}
-
 export const SongSchema = SchemaFactory.createForClass(Song);
