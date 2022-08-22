@@ -7,8 +7,10 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { PhotoService } from './photo.service';
 
+@ApiTags('Photo')
 @Controller()
 export class PhotoController {
   constructor(private readonly photoService: PhotoService) {}

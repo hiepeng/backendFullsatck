@@ -7,8 +7,10 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { MusicsService } from './musics.service';
 
+@ApiTags('Music')
 @Controller()
 export class MusicController {
   constructor(private readonly musicsService: MusicsService) {}
